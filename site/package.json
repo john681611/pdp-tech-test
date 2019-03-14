@@ -1,0 +1,42 @@
+{
+  "name": "site",
+  "version": "0.0.0",
+  "private": true,
+  "nyc": {
+    "check-coverage": true,
+    "per-file": false,
+    "lines": 80,
+    "statements": 80,
+    "functions": 80,
+    "branches": 80,
+    "reporter": [
+      "json-summary",
+      "text",
+      "html"
+    ],
+    "all": true,
+    "report-dir": "./.nyc_output"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "lint": "eslint -c ../eslint.js .",
+    "test:unit": "nyc mocha --exit ./config/baseTestConf.js \"./{,!(node_modules)/**/}*.test.js\""
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "node-sass-middleware": "0.11.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.15.1",
+    "expect-assert": "0.0.2",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "sinon": "^7.2.7"
+  }
+}
