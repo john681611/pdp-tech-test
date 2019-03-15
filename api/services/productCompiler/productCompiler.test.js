@@ -34,7 +34,7 @@ describe('productCompiler', () => {
         sinon.stub(productDetailsService, 'get').returns(JSON.parse(JSON.stringify(productDetailsServiceMock)));
         sinon.stub(pricesService, 'get').returns(pricesServiceMock);
         sinon.stub(reductionsService, 'get').returns(reductionsServiceMock);
-        sinon.stub(reductionsService, 'calc').returns(pricesServiceMock.amount);
+        sinon.stub(reductionsService, 'calc').returns({current: 20});
     });
 
     afterEach(() => {

@@ -35,11 +35,18 @@ const calcReduction = (basePrice, reduction) => {
 
 const calc = (basePrice, reductions) => {
     const price = parseFloat(basePrice);
-    if(! reductions.length) {
-        return price;
+    if( reductions.length) {
+        const reductionPrices = reductions.map(reduction => calcReduction(price, reduction));
+        const minPrice = Math.min(...reductionPrices);
+        if(minPrice !== price) {
+            return {
+                current: minPrice,
+                was: price
+            };
+        }
+
     }
-    const reductionPrices = reductions.map(reduction => calcReduction(price, reduction));
-    return Math.min(...reductionPrices);
+    return {current: price};
 };
 
 module.exports = {

@@ -172,12 +172,15 @@ describe('reductionsService', () => {
         });
 
         it('should find the minimum value of two reductions', () => {
-            // eslint-disable-next-line no-magic-numbers
-            expect(reductionsService.calc(basePrice, reductions)).to.eql(price - 15);
+            expect(reductionsService.calc(basePrice, reductions)).to.deep.eql({
+                // eslint-disable-next-line no-magic-numbers
+                current:price - 15,
+                was: price
+            });
         });
 
         it('should return base price if no reductions', () => {
-            expect(reductionsService.calc(basePrice, [])).to.eql(price);
+            expect(reductionsService.calc(basePrice, [])).to.eql({current: price});
         });
 
         it('should return base price if valid reductions', () => {
@@ -185,7 +188,7 @@ describe('reductionsService', () => {
             reductions[0].condition_type = 'STORE';
             reductions[1].condition_type = 'STORE';
             /* eslint-enable camelcase */
-            expect(reductionsService.calc(basePrice, [])).to.eql(price);
+            expect(reductionsService.calc(basePrice, [])).to.eql({current: price});
         });
     });
 
