@@ -1,0 +1,61 @@
+{
+    "id": "p22245233",
+    "title": "Luxury Egyptian Cotton Towel",
+    "description": "Give yourself an indulgent spa experience right at home with our super plush Egyptian cotton towels. Made with longer lasting mature cotton fibres and infused with our StayNEW™ technology, they’ll retain a fresh feeling even after multiple washes. These 100% pure cotton towels are available in a full rainbow of colours to match your home interiors with elegant softness. With a 650gsm rating, they’re thick, fluffy and fully absorbent for an unbeatable feeling of touchable luxury.",
+    "colours": [
+        {
+            "colour_id": "1",
+            "colour": "Grey",
+            "hex_code": "#909493",
+            "image_url": "https://asset1.cxnmarksandspencer.com/is/image/mands/PL_05_T36_1918E_KU_X_EC_0?$PRD_CARO_VER$",
+            "sizes": [
+                {
+                    "sku_id": "05566610",
+                    "size": "Face Towel",
+                    "price": 12.6
+                },
+                {
+                    "sku_id": "05566611",
+                    "size": "Hand Towel",
+                    "price": 16.2
+                }
+            ]
+        },
+        {
+            "colour_id": "2",
+            "colour": "Stone",
+            "hex_code": "#5E6965",
+            "image_url": "https://asset1.cxnmarksandspencer.com/is/image/mands/PL_05_T36_1918E_SS_X_EC_90?$PRD_CARO_VER$",
+            "sizes": [
+                {
+                    "sku_id": "05566620",
+                    "size": "Face Towel",
+                    "price": 16
+                },
+                {
+                    "sku_id": "05566621",
+                    "size": "Hand Towel",
+                    "price": 17
+                }
+            ]
+        },
+        {
+            "colour_id": "3",
+            "colour": "Ocean",
+            "hex_code": "#3BD6C6",
+            "image_url": "https://asset1.cxnmarksandspencer.com/is/image/mands/PL_05_T36_1918E_II_X_EC_90?$PRD_CARO_VER$",
+            "sizes": [
+                {
+                    "sku_id": "05566630",
+                    "size": "Face Towel",
+                    "price": 14.4
+                },
+                {
+                    "sku_id": "05566631",
+                    "size": "Hand Towel",
+                    "price": 2
+                }
+            ]
+        }
+    ]
+}
