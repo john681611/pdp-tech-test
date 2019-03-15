@@ -1,2 +1,35 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+    {{#each colours}}
+        <img id="img-{{colour}}" class="{{#if @first}}selected{{/if}}" src="{{image_url}}" alt="{{../title}} {{colour}}">
+    {{/each}}
+    <h1>{{title}}</h1>
+    {{#each colours}}
+        {{#each sizes}}
+            <div id="img-{{sku_id}}" class="prices {{#if @../first}}{{#if @first}}selected{{/if}}{{/if}}">
+                <p class="prices__current {{#if price.was}}prices__current--sale{{/if}}">&pound;{{price.current}}</p>
+                {{#if price.was}}
+                    <p class="prices__current--sale">Save &pound;{{price.was}}</p>
+                    <p class="prices__was">&pound;{{price.was}}</p>
+                {{/if}}
+            </div>
+        {{/each}}
+    {{/each}}
+    <div class="colour-selector">
+        {{#each colours}}
+            <button class="colour-selector__colour" style="background-color: {{hex_code}}"></button>
+        {{/each}}
+    </div>
+    <label for="size">Select size:</label>
+    <select class="select" id="size">
+        {{#each colours.[1].sizes}}
+            <option value="{{sku_id}}">{{size}}</option>
+        {{/each}}
+    </select>
+    <label for="qty">Qty:</label>
+    <select class="select full-width" id="qty">
+        <option value="1">1</option>
+    </select>
+
+    <button class="btn full-width">Add to Bag</button>
+    <p>{{description}}</p>
+
