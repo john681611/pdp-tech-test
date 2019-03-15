@@ -1,0 +1,33 @@
+{
+    "id": "p60107258",
+    "title": "Italian Cotton Travel Chinos with Stretch",
+    "description": "Effortlessly elegant style that teams seamlessly with work shirts and blazers or a white polo shirt for a sophisticated evening look, our slim fit chinos are a wardrobe essential for the on-trend gent. Made from a cotton rich fabric for fantastic comfort, these men\u2019s trousers are super soft, and with added stretch for comfort and crease recovery, they\u2019re the ideal travel trouser too.",
+    "colours": [
+        {
+            "colour_id": "1",
+            "colour": "Navy",
+            "hex_code": "#5892A9",
+            "image_url": "https://asset1.cxnmarksandspencer.com/is/image/mands/SD_03_T17_6380M_F0_X_EC_0?$PRD_CARO_VER$",
+            "sizes": [
+                {
+                    "sku_id": "08237408",
+                    "size": "14",
+                    "price": 20.0
+                }
+            ]
+        },
+        {
+            "colour_id": "2",
+            "colour": "Natural",
+            "hex_code": "#ABAA9B",
+            "image_url": "https://asset1.cxnmarksandspencer.com/is/image/mands/SD_03_T17_6380M_V0_X_EC_0?$PRD_CARO_VER$",
+            "sizes": [
+                {
+                    "sku_id": "08237409",
+                    "size": "14",
+                    "price": 20.0
+                }
+            ]
+        }
+    ]
+}
