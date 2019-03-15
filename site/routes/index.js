@@ -6,7 +6,7 @@ module.exports = server => {
             const result = await pdpService.get(req.params.productId);
             res.render('index', result);
         } catch (error) {
-            if(error.status === 404) {
+            if(error.response && error.response.status === 404) {
                 res.status(404);
                 res.render('notFound');
             } else {
