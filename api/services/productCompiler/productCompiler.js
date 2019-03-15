@@ -28,12 +28,7 @@ const getPrices = (colours, config) => {
         }
         return colour;
     });
-
-    try {
-        return Promise.all(promises);
-    } catch (error) {
-        throw error;
-    }
+    return Promise.all(promises);
 };
 
 

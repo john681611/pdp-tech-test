@@ -99,6 +99,16 @@ describe('reductionsService', () => {
             expect(reductionsService.calcReduction(price, reduction)).to.eql(price);
         });
 
+        it('should ignore qualified reductions', () => {
+            /* eslint-disable camelcase */
+            reduction.discount = {
+                discount_type: 'QUALIFIED',
+                discount_value: '0.2'
+            };
+            /* eslint-enable camelcase */
+            expect(reductionsService.calcReduction(price, reduction)).to.eql(price);
+        });
+
         it('should reduce cost by 10% given a percentage reduction of 10%', () => {
             // eslint-disable-next-line no-magic-numbers
             expect(reductionsService.calcReduction(price, reduction)).to.eql(price * .9);

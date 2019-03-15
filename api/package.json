@@ -16,7 +16,8 @@
     ],
     "exclude": [
       "**/*.test.js",
-      "app.js"
+      "app.js",
+      "config/*.js"
     ],
     "all": true,
     "report-dir": "./.nyc_output"
