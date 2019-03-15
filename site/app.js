@@ -18,12 +18,12 @@ server.use(express.urlencoded({ extended: false }));
 server.use(sassMiddleware({
     src: path.join(__dirname, 'public'),
     dest: path.join(__dirname, 'public'),
-    indentedSyntax: true, // true = .sass and false = .scss
+    indentedSyntax: false,
     sourceMap: true
 }));
 server.use(express.static(path.join(__dirname, 'public')));
 
-server.use('/', indexRouter);
+indexRouter(server);
 
 // catch 404 and forward to error handler
 server.use('*', (req, res) => {
