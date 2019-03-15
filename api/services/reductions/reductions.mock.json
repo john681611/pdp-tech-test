@@ -1,0 +1,12 @@
+[
+    {
+        "valid_from": "2019-02-27T00:00:00+00:00",
+        "valid_to": "2040-02-27T00:00:00+00:00",
+        "condition_type": "ONLINE",
+        "currency_code": "GBP",
+        "discount": {
+            "discount_type": "PERCENTAGE",
+            "discount_value": "10%"
+        }
+    }
+]
