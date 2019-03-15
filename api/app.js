@@ -12,6 +12,15 @@ server.use(express.urlencoded({ extended: false }));
 server.use(express.static(path.join(__dirname, 'public')));
 indexRouter(server);
 
+server.get('*', (req, res) => {
+    res.status(404);
+    res.send('Not found');
+});
+
+server.use((err, req, res) =>  {
+    res.status(500).send('Something broke!');
+});
+
 server.listen(port, () => {
     process.stdout.write(`api listening on port ${port}`);
 });
