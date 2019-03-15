@@ -1,9 +1,20 @@
-var express = require('express');
-var router = express.Router();
+const productCompiler = require('../services/productCompiler/productCompiler');
 
-/* GET home page. */
-router.get('/', function(req, res,) {
-    res.send({message:'not yet'});
-});
-
-module.exports = router;
+module.exports = server => {
+    server.get('/pdp/:productId', async(req, res) => {
+        try {
+            const product = await productCompiler.getProduct(req.params.productId);
+            res.send(product);
+        } catch (error) {
+            if(error.status === 404) {
+                res.status(404);
+                res.send('Not found');
+            } else {
+                res.status(500);
+                res.send('Something has gone wrong');
+                // eslint-disable-next-line no-console
+                console.error(error);
+            }
+        }
+    });
+};
