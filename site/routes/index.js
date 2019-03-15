@@ -1,9 +1,21 @@
-var express = require('express');
-var router = express.Router();
+const pdpService = require('../services/pdp');
 
-/* GET home page. */
-router.get('/', function(req, res) {
-    res.render('index', { title: 'Express' });
-});
+module.exports = server => {
+    server.get('/pdp/:productId', async(req, res) => {
+        try {
+            const result = await pdpService.get(req.params.productId);
+            res.render('index', result);
+        } catch (error) {
+            if(error.status === 404) {
+                res.status(404);
+                res.render('notFound');
+            } else {
+                res.status(500);
+                res.render('error');
+                // eslint-disable-next-line no-console
+                console.error(error);
+            }
+        }
+    });
+};
 
-module.exports = router;
