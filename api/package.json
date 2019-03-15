@@ -14,6 +14,10 @@
       "text",
       "html"
     ],
+    "exclude": [
+      "**/*.test.js",
+      "app.js"
+    ],
     "all": true,
     "report-dir": "./.nyc_output"
   },
@@ -22,13 +26,16 @@
     "**/*.min.js"
   ],
   "scripts": {
+    "dev": "npm run lint && npm run test:unit && npm start",
     "start": "node app.js",
     "lint": "eslint -c ../eslint.js . --fix",
     "test:unit": "nyc mocha --exit ./config/baseTestConf.js \"./{,!(node_modules)/**/}*.test.js\""
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "moment": "^2.24.0",
     "morgan": "~1.9.0"
   },
   "devDependencies": {
@@ -36,7 +43,10 @@
     "eslint": "^5.15.1",
     "expect-assert": "0.0.2",
     "mocha": "^6.0.2",
+    "nock": "^10.0.6",
     "nyc": "^13.3.0",
-    "sinon": "^7.2.7"
+    "sinon": "^7.2.7",
+    "sinon-chai": "^3.3.0",
+    "swagger-ui": "^3.21.0"
   }
 }
