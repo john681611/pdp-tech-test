@@ -14,17 +14,22 @@
       "text",
       "html"
     ],
+    "exclude": [
+      "**/*.test.js",
+      "app.js",
+      "config/*.js"
+    ],
     "all": true,
     "report-dir": "./.nyc_output"
   },
   "scripts": {
+    "dev": "npm run lint && npm run test:unit && npm start",
     "start": "node app.js",
     "lint": "eslint -c ../eslint.js .",
     "test:unit": "nyc mocha --exit ./config/baseTestConf.js \"./{,!(node_modules)/**/}*.test.js\""
   },
   "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
+    "axios": "^0.18.0",
     "express": "~4.16.0",
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
@@ -36,7 +41,9 @@
     "eslint": "^5.15.1",
     "expect-assert": "0.0.2",
     "mocha": "^6.0.2",
+    "nock": "^10.0.6",
     "nyc": "^13.3.0",
-    "sinon": "^7.2.7"
+    "sinon": "^7.2.7",
+    "sinon-chai": "^3.3.0"
   }
 }
