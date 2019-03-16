@@ -13,9 +13,20 @@ body {
     display: inline-block;
     width: 50px;
     height: 50px;
-    border: 1px solid black;;
+    border: 1px solid black;
+
+    &:focus,
+    &:hover {
+      outline: black;
+    }
+  }
+  input {
+    &:checked + .colour-selector__colour {
+      border: 5px black solid;
+    }
   }
 }
+
 .select {
   -webkit-appearance: none; 
   -moz-appearance: none;
@@ -47,4 +58,8 @@ body {
   width: 98%;
 }
 
+.acc__text {
+  position: relative;
+  left:  -99999999px;
+}
 

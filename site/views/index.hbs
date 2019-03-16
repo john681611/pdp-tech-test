@@ -1,11 +1,11 @@
 
     {{#each colours}}
-        <img id="img-{{colour_id}}" {{#unless @first}}hidden{{/unless}} class="col-12 col-md-6" src="{{image_url}}" alt="{{../title}} {{colour}}">
+        <img {{#unless @first}}hidden{{/unless}} class="col-12 col-md-6 swappable colour-{{colour_id}}" src="{{image_url}}" alt="{{../title}} {{colour}}">
     {{/each}}
     <h1>{{title}}</h1>
     {{#each colours}}
         {{#each sizes}}
-            <div id="img-{{sku_id}}" class="prices" {{#unless @first}}hidden{{/unless}}  {{#unless @../first}}hidden{{/unless}}>
+            <div id="{{sku_id}}" class="prices" {{#unless @first}}hidden{{/unless}}  {{#unless @../first}}hidden{{/unless}}>
                 <p class="prices__current {{#if price.was}}prices__current--sale{{/if}}">&pound;{{price.current}}</p>
                 {{#if price.was}}
                     <p class="prices__current--sale">Save &pound;{{price.was}}</p>
@@ -16,20 +16,21 @@
     {{/each}}
     <div class="colour-selector">
         {{#each colours}}
-            <button class="colour-selector__colour" style="background-color: {{hex_code}}"></button>
+            <input id="radio-{{colour_id}}" type="radio" name="colour" class="colour-selector__radio acc__text" {{#if @first}}checked{{/if}} value="{{colour_id}}"></radio>
+            <label for="radio-{{colour_id}}" class="colour-selector__colour" style="background-color: {{hex_code}}"></label>
         {{/each}}
     </div>
-    <form action='basket'>
+    <form action='basket' method="POST">
     <label for="size">Select size:</label>
     <select name="sku_id" class="select" id="size">
         {{#each colours}}
             {{#each sizes}}
-                <option {{#unless @../first}}hidden{{/unless}} class="opt-{{../colour_id}}" value="{{sku_id}}">{{size}}</option>
+                <option {{#unless @../first}}hidden{{/unless}} class="swappable colour-{{../colour_id}}" value="{{sku_id}}">{{size}}</option>
             {{/each}}
         {{/each}}
     </select>
     <label for="qty">Qty:</label>
-    <select class="select full-width" id="qty" name-"quantity">
+    <select class="select full-width" id="qty" name="quantity">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
