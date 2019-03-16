@@ -7,6 +7,7 @@ COPY package-lock.json /package-lock.json
 COPY services/ services
 COPY config /config
 COPY routes /routes
+COPY public/ public
 COPY views/ views
 RUN npm i  --production
 
