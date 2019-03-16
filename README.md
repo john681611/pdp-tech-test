@@ -11,6 +11,8 @@ Example URLs:
 - Site http://localhost:3000/pdp/p22245233
 - Api: http://localhost:5000/pdp/p22245233
 
+NB: Docker containers are networks together and can be fiddly I've done my best to avoid problems once done kill the network with `docker network rm mynet`
+
 ## Running locally
 Both apps run using node so you need to run 
 
