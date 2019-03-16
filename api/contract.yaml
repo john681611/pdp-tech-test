@@ -1,0 +1,119 @@
+swagger: "2.0"
+info:
+  description: "Provides compiled pdp data from multi sourced apis"
+  version: "1.0.0"
+  title: "pdp"
+  termsOfService: "http://swagger.io/terms/"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+basePath: "/"
+tags:
+  - name: "PDP"
+    description: "PDP page Data"
+schemes:
+  - "http"
+paths:
+  /pdp/{product_id}:
+    get:
+      tags:
+        - "Product PDP details"
+      summary: "Get pdp data for a given product ID."
+      description: ""
+      operationId: "getProduct"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "path"
+          name: "product_id"
+          description: "The ID of the product to retrieve."
+          required: true
+          type: string
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: '#/definitions/Product'
+        404:
+          description: "No Product Found"
+        500:
+          description: "Server side error"
+definitions:
+  Product:
+    type: "object"
+    required:
+      - "id"
+      - "title"
+      - "description"
+      - "colours"
+    properties:
+      id:
+        type: "string"
+        example: "p22245233"
+      title:
+        type: "string"
+        example: Luxury Egyptian Cotton Towel
+      description:
+        type: "string"
+        example: "Give yourself an indulgent spa experience right at home with our super plush Egyptian cotton towels. Made with longer lasting mature cotton fibres and infused with our StayNEW™ technology, they’ll retain a fresh feeling even after multiple washes. These 100% pure cotton towels are available in a full rainbow of colours to match your home interiors with elegant softness. With a 650gsm rating, they’re thick, fluffy and fully absorbent for an unbeatable feeling of touchable luxury."
+      colours:
+        type: "array"
+        items:
+          $ref: '#/definitions/Colour'
+  Colour:
+    type: "object"
+    required:
+      - "colour_id"
+      - "colour"
+      - "hex_code"
+      - "image_url"
+      - "sizes"
+    properties:
+      colour_id:
+        type: "string"
+        example: 1
+      colour:
+        type: "string"
+        example: "Grey"
+      hex_code:
+        type: "string"
+        example: "#3366AB"
+      image_url:
+        type: "string"
+        example: "https://asset1.cxnmarksandspencer.com/is/image/mands/PL_05_T36_1918E_KU_X_EC_0?$PRD_CARO_VER$"
+      sizes:
+        type: "array"
+        items:
+          $ref: '#/definitions/Size'
+  Size:
+    type: "object"
+    required:
+      - "sku_id"
+      - "size"
+    properties:
+      sku_id:
+        type: "string"
+        example: "05566600"
+      size:
+        type: "string"
+        example: "Face Towel"
+      price:
+        type: "object"
+        items:
+          $ref: '#/definitions/Price'
+  Price:
+    type: "object"
+    required:
+      - "current"
+    properties:
+      current:
+        type: "number"
+        example: "8.00"
+      was:
+        type: "number"
+        example: 8.00
+      diff:
+        type: "number"
+        example: 8.00
