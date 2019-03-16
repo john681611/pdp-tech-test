@@ -1,60 +1,74 @@
-
-    {{#each colours}}
-        <img {{#unless @first}}hidden{{/unless}} class="col-sm-12 col-md-6 swappable colour-{{colour_id}}" src="{{image_url}}" alt="{{../title}} {{colour}}">
-    {{/each}}
-    <h1>{{title}}</h1>
-    {{#each colours}}
-        {{#each sizes}}
-            <div id="{{sku_id}}" class="prices" {{#unless @first}}hidden{{/unless}}  {{#unless @../first}}hidden{{/unless}}>
-                <p class="prices__current {{#if price.was}}prices__current--sale{{/if}}">&pound;{{price.current}}</p>
+<div class="container">
+    <div class="row">
+        {{#each colours}}
+        <img {{#unless @first}}hidden{{/unless}} class="col-12 col-md-6 swappable colour-{{colour_id}}"
+            src="{{image_url}}" alt="{{../title}} {{colour}}">
+        {{/each}}
+        <div class="col-md-6 col-12">
+            <h1>{{title}}</h1>
+            {{#each colours}}
+            {{#each sizes}}
+            <div id="{{sku_id}}" class="prices" {{#unless @first}}hidden{{/unless}}
+                {{#unless @../first}}hidden{{/unless}}>
+                <span
+                    class="prices__current {{#if price.was}}prices__current--sale{{/if}}">&pound;{{price.current}}</span>
                 {{#if price.was}}
-                    <p class="prices__current--sale">Save &pound;{{price.was}}</p>
-                    <p class="prices__was">&pound;{{price.was}}</p>
+                <span class="prices__current--sale">Save &pound;{{price.was}}</span>
+                <span class="prices__was">Was &pound;{{price.was}}</span>
                 {{/if}}
             </div>
-        {{/each}}
-    {{/each}}
-    <div class="colour-selector">
-        <p>Selected Colour: <span class="colour-selector-selected">{{colours.[0].colour}}</span></p>
-        {{#each colours}}
-            <input id="radio-{{colour_id}}" type="radio" name="colour" class="colour-selector__radio acc__text" data-colour="{{colour}}" {{#if @first}}checked{{/if}} value="{{colour_id}}"></radio>
-            <label for="radio-{{colour_id}}" class="colour-selector__colour" style="background-color: {{hex_code}}"></label>
-        {{/each}}
-    </div>
-    <form action='basket' method="POST">
-    <label for="size">Select size:</label>
-    <select name="sku_id" class="select" id="size">
-        {{#each colours}}
-            {{#each sizes}}
-                <option {{#unless @../first}}hidden{{/unless}} class="swappable colour-{{../colour_id}}" value="{{sku_id}}">{{size}}</option>
             {{/each}}
-        {{/each}}
-    </select>
-    <label for="qty">Qty:</label>
-    <select class="select full-width" id="qty" name="quantity">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-    </select>
+            {{/each}}
+            <div class="colour-selector">
+                <p>Selected Colour: <span class="colour-selector__selected">{{colours.[0].colour}}</span></p>
+                {{#each colours}}
+                <input id="radio-{{colour_id}}" type="radio" name="colour" class="colour-selector__radio acc__text"
+                    data-colour="{{colour}}" {{#if @first}}checked{{/if}} value="{{colour_id}}"></radio>
+                <label for="radio-{{colour_id}}" class="colour-selector__colour"
+                    style="background-color: {{hex_code}}"></label>
+                {{/each}}
+            </div>
+            <form action='basket' method="POST">
+                <label for="size">Select size:</label>
+                <select name="sku_id" class="select" id="size" required>
+                    <option disabled value="" selected hidden>Please Select</option>
+                    {{#each colours}}
+                    {{#each sizes}}
+                    <option {{#unless @../first}}hidden{{/unless}} class="swappable colour-{{../colour_id}}"
+                        value="{{sku_id}}">
+                        {{size}}</option>
+                    {{/each}}
+                    {{/each}}
+                </select>
+                <div class="container row">
+                    <label for="qty" class="col-12">Qty:</label>
+                    <select class="select col-12 col-sm-3" id="qty" name="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
 
-    <button class="btn btn-success full-width" >Add to Bag</button>
-    </form>
-    <p>{{description}}</p>
-
+                    <button class="btn btn-success col-12 col-sm-8 offset-sm-1">Add to Bag</button>
+                </div>
+            </form>
+            <p>{{description}}</p>
+        </div>
+    </div>
+</div>

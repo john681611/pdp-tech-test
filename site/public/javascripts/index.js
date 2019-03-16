@@ -22,7 +22,7 @@ const onRadioChange = event => {
     sizeSelector.value = document.querySelector(`select .colour-${show}`).value;
     sizeSelector.dispatchEvent(new Event('change'));
 
-    document.querySelector('.colour-selector-selected').textContent = event.target.attributes['data-colour'].value;
+    document.querySelector('.colour-selector__selected').textContent = event.target.attributes['data-colour'].value;
 };
 
 const radioButtons = document.querySelectorAll('.colour-selector__radio');
