@@ -17,7 +17,7 @@ describe('reductionsService', () => {
             nock.cleanAll();
         });
 
-        it('should return json product details', async () => {
+        it('should return json discounts', async () => {
             nock(`https://${config.apiHost}`)
                 .get('/reductions/08237408')
                 .reply(200, reductionsMock);
@@ -25,7 +25,7 @@ describe('reductionsService', () => {
             expect(result).to.deep.eql(reductionsMock);
         });
 
-        it('should fail and return 404 status if bad product code passed', async () => {
+        it('should fail and return 404 status if bad sku code passed', async () => {
             nock(`https://${config.apiHost}`)
                 .get('/reductions/nahh')
                 .reply(404, 'notFound');
@@ -114,7 +114,7 @@ describe('reductionsService', () => {
             expect(reductionsService.calcReduction(price, reduction)).to.eql(price * .9);
         });
 
-        it('should reduce cost by 3 given a ammount reduction of 3', () => {
+        it('should reduce cost by 3 given a amount reduction of 3', () => {
             /* eslint-disable camelcase */
             reduction.discount = {
                 discount_type: 'AMOUNT',
@@ -125,7 +125,7 @@ describe('reductionsService', () => {
             expect(reductionsService.calcReduction(price, reduction)).to.eql(price - 3);
         });
 
-        it('should reduce cost by .2 given a ammount reduction of 0.2', () => {
+        it('should reduce cost by .2 given a amount reduction of 0.2', () => {
             /* eslint-disable camelcase */
             reduction.discount = {
                 discount_type: 'AMOUNT',
@@ -184,7 +184,7 @@ describe('reductionsService', () => {
             expect(reductionsService.calc(basePrice, [])).to.eql({current: price});
         });
 
-        it('should return base price if valid reductions', () => {
+        it('should return base price if invalid reductions', () => {
             /* eslint-disable camelcase */
             reductions[0].condition_type = 'STORE';
             reductions[1].condition_type = 'STORE';

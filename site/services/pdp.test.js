@@ -16,7 +16,7 @@ describe('pdpService', () => {
         nock.cleanAll();
     });
 
-    it('should return json product details', async () => {
+    it('should return json pdp details', async () => {
         nock(`${config.apiHost}`)
             .get('/pdp/p08237408')
             .reply(200, pdpMock);

@@ -12,7 +12,7 @@ describe('pricesService', () => {
         nock.cleanAll();
     });
 
-    it('should return json product details', async () => {
+    it('should return json price information', async () => {
         nock(`https://${config.apiHost}`)
             .get('/prices/08237408')
             .reply(200, priceMock);
@@ -20,7 +20,7 @@ describe('pricesService', () => {
         expect(result).to.deep.eql(priceMock);
     });
 
-    it('should fail and return 404 status if bad product code passed', async () => {
+    it('should fail and return 404 status if bad sku code passed', async () => {
         nock(`https://${config.apiHost}`)
             .get('/prices/nahh')
             .reply(404, 'notFound');
