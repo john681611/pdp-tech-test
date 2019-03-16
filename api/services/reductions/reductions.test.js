@@ -175,7 +175,8 @@ describe('reductionsService', () => {
             expect(reductionsService.calc(basePrice, reductions)).to.deep.eql({
                 // eslint-disable-next-line no-magic-numbers
                 current:price - 15,
-                was: price
+                was: price,
+                diff: 15
             });
         });
 

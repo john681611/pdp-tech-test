@@ -41,7 +41,8 @@ const calc = (basePrice, reductions) => {
         if(minPrice !== price) {
             return {
                 current: minPrice,
-                was: price
+                was: price,
+                diff: price - minPrice
             };
         }
 
