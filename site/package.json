@@ -21,7 +21,8 @@
     "exclude": [
       "**/*.test.js",
       "app.js",
-      "config/*.js"
+      "config/*.js",
+      "public/**/*.js"
     ],
     "all": true,
     "report-dir": "./.nyc_output"
