@@ -6,18 +6,6 @@ body {
   margin: 10px; 
 }
 
-img {
-  display: none;
-  width: 100vw;
-  height: auto;
-
-  @media screen and (min-width: 600px) {
-    width: 50%;
-  }
-}
-
-
-
 .colour-selector {
   margin-bottom: 8px;
 
@@ -42,15 +30,8 @@ img {
   padding: 4px 30px 4px 4px;
   margin: 8px;
 }
-.btn {
-  border: 0;
-  background: #5fd83a;
-  padding: 8px;
-  margin: 8px;
-}
 
 .prices {
-  display: none;
   &__current {
     &--sale {
       color: red;
@@ -64,10 +45,6 @@ img {
 
 .full-width {
   width: 98%;
-}
-
-.selected {
-  display: block;
 }
 
 

@@ -1,11 +1,11 @@
 
     {{#each colours}}
-        <img id="img-{{colour}}" class="{{#if @first}}selected{{/if}}" src="{{image_url}}" alt="{{../title}} {{colour}}">
+        <img id="img-{{colour_id}}" {{#unless @first}}hidden{{/unless}} class="col-12 col-md-6" src="{{image_url}}" alt="{{../title}} {{colour}}">
     {{/each}}
     <h1>{{title}}</h1>
     {{#each colours}}
         {{#each sizes}}
-            <div id="img-{{sku_id}}" class="prices {{#if @../first}}{{#if @first}}selected{{/if}}{{/if}}">
+            <div id="img-{{sku_id}}" class="prices" {{#unless @first}}hidden{{/unless}}  {{#unless @../first}}hidden{{/unless}}>
                 <p class="prices__current {{#if price.was}}prices__current--sale{{/if}}">&pound;{{price.current}}</p>
                 {{#if price.was}}
                     <p class="prices__current--sale">Save &pound;{{price.was}}</p>
@@ -19,17 +19,40 @@
             <button class="colour-selector__colour" style="background-color: {{hex_code}}"></button>
         {{/each}}
     </div>
+    <form action='basket'>
     <label for="size">Select size:</label>
-    <select class="select" id="size">
-        {{#each colours.[1].sizes}}
-            <option value="{{sku_id}}">{{size}}</option>
+    <select name="sku_id" class="select" id="size">
+        {{#each colours}}
+            {{#each sizes}}
+                <option {{#unless @../first}}hidden{{/unless}} class="opt-{{../colour_id}}" value="{{sku_id}}">{{size}}</option>
+            {{/each}}
         {{/each}}
     </select>
     <label for="qty">Qty:</label>
-    <select class="select full-width" id="qty">
+    <select class="select full-width" id="qty" name-"quantity">
         <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
     </select>
 
-    <button class="btn full-width">Add to Bag</button>
+    <button class="btn btn-success full-width" >Add to Bag</button>
+    </form>
     <p>{{description}}</p>
 
