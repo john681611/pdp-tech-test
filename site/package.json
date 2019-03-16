@@ -2,6 +2,10 @@
   "name": "site",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "10.15.0",
+    "npm": "6.4.1"
+  },
   "nyc": {
     "check-coverage": true,
     "per-file": false,
