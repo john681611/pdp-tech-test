@@ -46,7 +46,7 @@ describe('pdp', () => {
 
     it('should respond 404 for missing product', async () => {
         reqStub.params.productId ='124';
-        pdpService.get.throws({status:404});
+        pdpService.get.throws({response: {status:404}});
         await pdpHandler(serverStub);
         expect(resStub.status).to.be.calledWith(404);
         expect(resStub.render).to.be.calledWith('notFound');
